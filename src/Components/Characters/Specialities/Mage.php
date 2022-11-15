@@ -4,9 +4,11 @@ namespace App\Components\Characters\Specialities;
 
 use App\Components\Characters\Character;
 use App\Components\Items\Weapons\Weapon;
+use App\Traits\ExperienceAware;
 
 class Mage extends Character
 {
+    use ExperienceAware;
     /**
      * @throws \Exception
      */
@@ -20,5 +22,6 @@ class Mage extends Character
         $this->setEscape(random_int(20, 100));
         $this->setEquipableWeapon([Weapon::CLASS_STAFF,
             Weapon::CLASS_WAND, Weapon::CLASS_FIST]);
+        // $this->addXp($target->getExperience());
     }
 }

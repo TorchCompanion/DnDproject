@@ -567,14 +567,14 @@ abstract class Foe extends Character
 
     public function __construct(string $name, string $race)
     {
-        parent::__construct($name, 'Foe');
+        parent::__construct($name, 'Foes');
         $this->setRace($race);
     }
 
 
 // TODO nom random, stats random
-// TODO Foe : bat|zombie|orc|goblin|skeleton
-// TODO each Foe override attackTarget(Character $target) => code pour calculer les dégats et l'utilisation de mana
+// TODO Foes : bat|zombie|orc|goblin|skeleton
+// TODO each Foes override attackTarget(Character $target) => code pour calculer les dégats et l'utilisation de mana
     /**
      * @return string
      */

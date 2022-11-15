@@ -1,5 +1,5 @@
 {
-    "name": "arkdevuk/dnd-test",
+    "name": "torchcompanion/dnd-test",
     "description": "video game to discover POO",
     "type": "project",
     "autoload": {
@@ -9,8 +9,8 @@
     },
     "authors": [
         {
-            "name": "arkdevuk",
-            "email": "florian.chambon-lacoste@weemars.fr"
+            "name": "torch",
+            "email": "torchcompanion@gmail.com"
         }
     ],
     "require": {}

@@ -88,16 +88,6 @@ abstract class Character
      */
     protected ?Pet $pet;
 
-    /**
-     * @var int : Character level
-     */
-    protected int $experienceLevel;
-
-    /**
-     * @var int : Character experience
-     */
-    protected int $experienceTotal;
-
     public function __construct(
         string $name,
         string $classe
@@ -120,8 +110,6 @@ abstract class Character
         $this->classe = $classe;
         $this->equipableWeapon = [];
         $this->hasShield = false;
-        $this->experienceTotal = 0;
-        $this->experienceLevel = 1;
 
         echo $this->getName().' is born'.PHP_EOL;
     }

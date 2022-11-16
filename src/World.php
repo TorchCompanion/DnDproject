@@ -100,6 +100,6 @@ class World
         $abrutus->useItem($maxiHealthPotion);
 
 
-        var_dump($gandolfr, '_____________________________', $gobugobu);
+        var_dump($gandolfr);
     }
 }

@@ -6,12 +6,13 @@ use App\Components\Characters\Specialities;
 
 trait ExperienceAware
 {
-    protected int $experienceTotal;
-    protected int $experienceLevel;
+    protected int $experienceTotal = 0;
+    protected int $experienceLevel = 0;
 
     public function addXp(int $experience): void
     {
         $this->experienceTotal += $experience;
+        $this->experienceLevel = (int)floor($this->experienceTotal/100);
     }
 
     public function getXp(): int

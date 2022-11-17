@@ -3,9 +3,13 @@
 namespace App\Components\Items\Shields;
 
 use App\Components\Items\Item;
+use App\Interfaces\ExperienceInterface;
+use App\Traits\ExperienceAware;
 
-class Shield extends Item
+class Shield extends Item implements ExperienceInterface
 {
+    use ExperienceAware;
+
     protected string $name;
     protected int $armor;
 
@@ -18,6 +22,7 @@ class Shield extends Item
         parent::__construct($name, $description, true,
             Item::CAT_SHIELD);
         $this->armor = $armor;
+        $this->setExperienceLevelMax(22);
     }
 
     /**

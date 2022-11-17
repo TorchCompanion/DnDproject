@@ -15,8 +15,9 @@ abstract class Character
 {
     public static function changeBag(
         Character $char,
-        int $bagSize
-    ): void {
+        int       $bagSize
+    ): void
+    {
         $char->inventory = new Bag($bagSize);
         $char->inventory->setOwner($char);
     }
@@ -91,7 +92,8 @@ abstract class Character
     public function __construct(
         string $name,
         string $classe
-    ) {
+    )
+    {
         $this->name = $name;
         $this->creationDate = new \DateTime();
         $this->phyPower = 10;
@@ -111,7 +113,7 @@ abstract class Character
         $this->equipableWeapon = [];
         $this->hasShield = false;
 
-        echo $this->getName().' is born'.PHP_EOL;
+        echo $this->getName() . ' is born' . PHP_EOL;
     }
 
     public function giveItemOrPet(OwnershipInterface $itemOrPet): self
@@ -399,7 +401,7 @@ abstract class Character
         if (($item instanceof Shield) && $this->hasShield === true) {
             return true;
         }
-        if($item instanceof Shield && $this->getWeapon()?->isTwoHanded() === false) {
+        if ($item instanceof Shield && $this->getWeapon()?->isTwoHanded() === false) {
             return true;
         }
 
@@ -422,13 +424,13 @@ abstract class Character
         }
         echo $this->getName() . " equip " . $item->getName() . PHP_EOL;
         // si c'est un Weapon a deux main => on enlève le shield
-        if($item instanceof Weapon && $item->isTwoHanded() === true) {
+        if ($item instanceof Weapon && $item->isTwoHanded() === true) {
             $this->unequipItem($this->getShield());
             $this->weapon = $item;
-        } else if($item instanceof Weapon) {
+        } else if ($item instanceof Weapon) {
             // si c'est un Weapon a une seule main on equip
             $this->weapon = $item;
-        } else if($item instanceof Shield) {
+        } else if ($item instanceof Shield) {
             // si c'est un shield on equip
             $this->shield = $item;
         }
@@ -438,8 +440,7 @@ abstract class Character
     {
         if ($item instanceof Weapon) {
             $this->setWeapon(null);
-        }
-        elseif ($item instanceof Shield) {
+        } elseif ($item instanceof Shield) {
             $this->setShield(null);
         }
     }
@@ -474,7 +475,7 @@ abstract class Character
 
     public function isAlive(): bool
     {
-        if($this->life <= 0) {
+        if ($this->life <= 0) {
             return false;
         }
 
@@ -536,7 +537,7 @@ abstract class Character
         $this->pet = $pet;
         $pet?->setOwner($this);
         if ($pet !== null) {
-            echo $this->getName()." has summoned ".$pet->getName().PHP_EOL;
+            echo $this->getName() . " has summoned " . $pet->getName() . PHP_EOL;
         }
 
         return $this;
@@ -545,7 +546,7 @@ abstract class Character
     public function removePet(): void
     {
         $this->pet?->setOwner(null);
-        echo $this->getName()." has dismissed his pet".PHP_EOL;
+        echo $this->getName() . " has dismissed his pet" . PHP_EOL;
         $this->pet = null;
     }
 }

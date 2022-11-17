@@ -4,9 +4,11 @@ namespace App\Components\Characters\Foes;
 
 use App\Components\Characters\Character;
 use App\Interfaces\ExperienceInterface;
+use App\Traits\ExperienceAware;
 
 abstract class Foe extends Character implements ExperienceInterface
 {
+    use ExperienceAware;
 
     public const RACE_GOBLIN = 'goblin';
     public const RACE_ORC = 'orc';
@@ -44,27 +46,5 @@ abstract class Foe extends Character implements ExperienceInterface
         $this->race = $race;
 
         return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getExperience(): int
-    {
-        return $this->experience;
-    }
-
-    /**
-     * @param int $experience
-     */
-    public function setExperience(int $experience): void
-    {
-        $this->experience = $experience;
-    }
-
-    public function addXp(int $experience): void
-    {
-        if(this->life <= 0)
-        $this->experience += $experience;
     }
 }
